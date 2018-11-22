@@ -31,7 +31,9 @@ type Context struct {
 // RoutesGET returns get routes
 func RoutesGET() map[string]echo.HandlerFunc {
 	return map[string]echo.HandlerFunc{
-		"/ws": Ws,
+		"/ws":             Ws,
+		"/query/:pattern": Fuzzy,
+		"/key/:key/:type": Key,
 	}
 }
 

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-1 evt">
                 <span class="badge"
-                    v-bind:class="{ 'badge-primary': event.type === 'KEY', 'badge-danger': event.type === 'SET', 'badge-warning': event.type === 'HASH'}">
+                    v-bind:class="{ 'badge-primary': event.type === 'STRING', 'badge-danger': event.type === 'SET', 'badge-warning': event.type === 'HASH'}">
                     {{ event.type }}
                 </span>
             </div>

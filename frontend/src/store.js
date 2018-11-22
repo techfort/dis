@@ -3,7 +3,6 @@ import Vue from 'vue';
 
 const addEntry = (state, e) => {
     e.id = state.events.length + 1;
-    console.log('EVENT', e)
     state.events.unshift(e);
 };
 
