@@ -53,7 +53,6 @@ export default {
                             const { data } = await redisKey(s, 'SET');
                             return data;
                         }));
-                        console.log(strkeys, hashkeys, setkeys);
                         const results = strkeys.concat(hashkeys, setkeys);
                         this.entries = results;
                     })

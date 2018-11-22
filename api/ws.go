@@ -63,7 +63,7 @@ func Ws(c echo.Context) error {
 			if e != nil {
 				err = e
 			}
-			raw = newStrResult(key, res, "KEY")
+			raw = newStrResult(key, res, "STRING")
 		case "hset":
 			hash := dis.NewHash(cc.Redis, key)
 			res, e := hash.String()

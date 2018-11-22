@@ -7,7 +7,7 @@
                     {{ event.type }}
                 </span>
             </div>
-            <div class="col-md-3 keycol evt">{{ event.key }}</div>
+            <div class="col-md-3 keycol evt">{{ event.key | truncate }}</div>
             <div class="col-md-8 evt">{{ event.value }}</div>
         </div>
     </div>
@@ -23,8 +23,11 @@
 
 
 <script>
+import filters from '../filters';
+
 export default {
     name: 'Event',
-    props: ['event']
+    props: ['event'],
+    filters
 }
 </script>

@@ -1,7 +1,9 @@
 <template>
-    <div id="events" class="container-fluid">
-        <label for="channel">Filter</label> <input type="text" id="channel" v-model="expr" />
-        <button @click="reset">RESET</button>
+    <div class="container-fluid">
+        <div class="row insertform">
+            <label for="channel">Filter</label> <input type="text" id="channel" v-model="expr" /> Type: <input type="text" id="type" v-model="type" />
+            <button @click="reset">RESET</button>
+        </div>
         <div class="row">
             <div class="col-md-1"><strong>TYPE</strong></div>
             <div class="col-md-3"><strong>KEY</strong></div>
@@ -20,12 +22,15 @@ export default {
     },
     computed: {
         entries() {
-            return this.$store.getters.EVENTS.filter(e => e.key.indexOf(this.expr) !== -1);
+            return this.$store.getters.EVENTS
+                .filter(e => e.key.indexOf(this.expr) !== -1)
+                .filter(e => e.type.toLowerCase().indexOf(this.type.toLowerCase()) !== -1);
         }
     },
     data () {
         return {
-            expr: ''
+            expr: '',
+            type: ''
         };
     },
     methods: {

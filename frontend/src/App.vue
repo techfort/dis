@@ -17,6 +17,9 @@
           <li class="nav-item">
             <a class="nav-link"><router-link to="/insert">Insert</router-link></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link"><router-link to="/sets">Sets</router-link></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -36,6 +39,19 @@ html, body {
 body {
   padding-top: 5rem;
 }
+.navbar-dark {
+  background: #6D0010 !important;
+}
+
+.nav-link{
+  color: white;
+  font-size: 1.1em;
+  font-weight: 800;
+}
+
+.nav-link a:visited {
+  color: white !important;
+}
 
 * {
     -webkit-box-sizing: border-box;
@@ -50,4 +66,21 @@ body {
 .pure-menu-item {
   vertical-align: middle;
   padding: 0 2em 0;
-}</style>
+}
+.insertform {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    margin: 1rem;
+}
+.insertform input, .insertform button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.badge {
+  font-variant: small-caps;
+}
+h6 {
+  font-weight: 600;
+}
+</style>

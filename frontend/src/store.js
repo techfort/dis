@@ -2,6 +2,9 @@ import Vuex from 'vuex';
 import Vue from 'vue';
 
 const addEntry = (state, e) => {
+    if (e === null || e === undefined) {
+        return;
+    }
     e.id = state.events.length + 1;
     state.events.unshift(e);
 };
@@ -34,23 +37,24 @@ export const store = new Vuex.Store({
         },
         SOCKET_ONOPEN(state, e) {
             Vue.prototype.$socket = e.currentTarget;
-            console.log('OPENED SOCKET');
             state.socket.isConnected = true;
         },
-        SOCKET_RECONNECT(state, e) {
-
+        SOCKET_RECONNECT(state) {
+            state.socket.isConnected = true;
         },
-        SOCKET_RECONNECT_ERROR(stae, e) {
+        SOCKET_RECONNECT_ERROR(state) {
             state.socket.isConnected = false;
         },
         SOCKET_ONMESSAGE(state, e) {
-            console.log('MESSAGE', e);
+            // console.log('MESSAGE', e);
             addEntry(state, JSON.parse(e.data));
         },
+        /*
         SOCKET_ONERROR(state, e) {
-
+            console.log(e);
         },
-        SOCKET_ONCLOSE(state, e) {
+        */
+        SOCKET_ONCLOSE(state) {
             state.socket.isConnected = false;
         },
     },
@@ -61,7 +65,7 @@ export const store = new Vuex.Store({
         queryKey({commit}, e) {
             commit('ADD_EVENT', e);
         },
-        reset({commit}, e) {
+        reset({commit}) {
             commit('CLEAR');
         }
     },

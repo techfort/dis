@@ -31,18 +31,6 @@
     </div>
 </template>
 
-<style>
-.insertform {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    margin: 1rem;
-}
-.insertform input, .insertform button {
-    margin: 0.5rem;
-    padding: 0.5rem;
-}
-</style>
-
 <script>
 import api from '../services.js';
 

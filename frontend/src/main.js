@@ -8,6 +8,7 @@ import Watch from './components/Watch.vue';
 import Event from './components/Event.vue';
 import Query from './components/Query.vue';
 import Insert from './components/Insert.vue';
+import Sets from './components/Sets.vue';
 
 Vue.use(VueNativeSock, 'ws://localhost:1666/ws', { store });
 Vue.config.productionTip = false;
@@ -16,7 +17,8 @@ Vue.use(VueRouter);
 const routes = [
   { path: '/watch', component: Watch },
   { path: '/query', component: Query },
-  { path: '/insert', component: Insert }
+  { path: '/insert', component: Insert },
+  { path: '/sets', component: Sets }
 ];
 
 const router = new VueRouter({
@@ -32,6 +34,7 @@ new Vue({
     Watch,
     Query,
     Event,
-    Insert
+    Insert,
+    Sets
   }
 }).$mount('#app');
