@@ -8,7 +8,7 @@ import (
 type Set interface {
 	Key() string
 	AddInt(i ...int64) (int64, error)
-	AddString(i ...string) (int64, error)
+	AddString(i string) (int64, error)
 	GetInts() ([]int64, error)
 	GetStrings() ([]string, error)
 	RemoveInt(i int64) (int64, error)
@@ -29,7 +29,7 @@ func (s set) AddInt(i ...int64) (int64, error) {
 	return r, errors.Wrap(err, "failed to add int to set")
 }
 
-func (s set) AddString(i ...string) (int64, error) {
+func (s set) AddString(i string) (int64, error) {
 	r, err := s.SAdd(s.key, i).Result()
 	return r, errors.Wrap(err, "failed to add string to set")
 }
